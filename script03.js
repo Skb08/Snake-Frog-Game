@@ -4,12 +4,13 @@ cross = true;
 
 audio = new Audio('music.mp3');
 audiogo = new Audio('gameover.mp3');
-setTimeout(() => {
-    audio.play()
-}, 1000);
+// setTimeout(() => {
+//     audio.play();
+//     console.log("suraj");
+// }, 1000);
 
 document.onkeydown = function (e){
-    console.log("key code is: ",e.keyCode);
+    // console.log("key code is: ",e.keyCode);
     if(e.keyCode == 38){
         // console.log("suraj");
         frog = document.querySelector('.frog');
@@ -47,16 +48,22 @@ setInterval(() => {
     offsetY = Math.abs(fy-sy);
     // console.log(offsetX,offsetY);
 
+    // setTimeout(() => {
+    //     audio.play();
+    //     console.log("suraj");
+    // }, 1000);
+
     if(offsetX<105 && offsetY<52){
         gameOver.innerHTML = "Game Over - Reload to Play Again";
         snake.classList.remove('snakeAni');
         audiogo.play();
         setTimeout(() => {
             audiogo.pause();
-            audio.pause();
+            // audio.pause();
         }, 1000);
-    }else if(offsetX<150 && cross){
-        score += 100;
+    }
+    else if(offsetX<150 && cross){
+        score += 10;
         updateScore(score);
         cross = false;
         setTimeout(() => {
